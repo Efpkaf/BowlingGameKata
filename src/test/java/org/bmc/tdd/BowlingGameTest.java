@@ -11,13 +11,8 @@ class BowlingGameTest {
     BowlingGame theGame = new BowlingGame();
 
     @Test
-    public void shouldScoreOneWhenRolledOneWithJUnit() {
-        assertEquals(1, theGame.getScore());
-    }
-
-    @Test
     public void shouldScoreOneWhenRolledOneWithAssertJ() {
-        Assertions.assertThat(theGame.getScore()).isEqualTo(1);
+        Assertions.assertThat(theGame.getScore("1")).isEqualTo(1);
     }
 
     @Test
@@ -25,4 +20,8 @@ class BowlingGameTest {
         assertEquals(0, theGame.getScore("0,0,0,0,0,0,0,0,0,0"));
     }
 
+    @Test
+    void shouldReturnSumOfDifferentPoints(){
+        assertEquals(1, theGame.getScore("0,1"));
+    }
 }
