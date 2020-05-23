@@ -9,9 +9,11 @@ public class BowlingGame {
         int bonusNumber = 0;
         boolean twoStrikesInRow = false;
         for (String separatedPoint : separatedPoints) {
+            int multipland = 2;
             if(separatedPoint.equals("X")){
                 bonusNumber = 0;
                 if (shouldMultiplePoints) {
+                    multipland = getMultipland(twoStrikesInRow);
                     twoStrikesInRow = true;
                     separatedPoint = "10";
                 } else {
@@ -19,18 +21,23 @@ public class BowlingGame {
                     sum += 10;
                     continue;
                 }
+            } else {
+                twoStrikesInRow = false;
             }
             int parsedPoints = Integer.parseInt(separatedPoint);
 
             if(shouldMultiplePoints){
                 if (bonusNumber < 2) {
-                    parsedPoints = 2*parsedPoints;
+                    parsedPoints = multipland*parsedPoints;
                 }
                 ++bonusNumber;
             }
             sum += parsedPoints;
-            twoStrikesInRow = false;
         }
         return sum;
+    }
+
+    private int getMultipland(boolean twoStrikesInRow) {
+        return twoStrikesInRow ? 3 : 2;
     }
 }

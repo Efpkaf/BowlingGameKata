@@ -25,10 +25,10 @@ class BowlingGameTest {
         assertEquals(1, theGame.getScore("0,1"));
     }
 
-//    @Test
-//    void shouldReturnMaximumAmountOfPoints() {
-//        assertEquals(300, theGame.getScore("X,X,X,X,X,X,X,X,X,X,X,X"));
-//    }
+    @Test
+    void shouldReturnMaximumAmountOfPoints() {
+        assertEquals(300, theGame.getScore("X,X,X,X,X,X,X,X,X,X,X,X"));
+    }
 
     @Test
     void shouldAddBonusWhenFirstStrike() {
@@ -41,7 +41,12 @@ class BowlingGameTest {
     }
 
     @Test
-    void shouldReturnMaximumAmountOfPoints() {
-        assertEquals(300, theGame.getScore("X,X,X,0,0"));
+    void shouldReturnAmountOfPointsWithDoubleBonus() {
+        assertEquals(60, theGame.getScore("X,X,X,0,0"));
+    }
+
+    @Test
+    void shouldReturnMaximumAmountOfPointsWithoutBonusShoots() {
+        assertEquals(270, theGame.getScore("X,X,X,X,X,X,X,X,X,X,0,0"));
     }
 }
