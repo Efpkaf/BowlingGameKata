@@ -20,4 +20,9 @@ class BowlingGameTest {
         Assertions.assertThat(theGame.getScore()).isEqualTo(1);
     }
 
+    @Test
+    void shouldReturnZeroForZeroScoredPoints(){
+        assertEquals(0, theGame.getScore("0,0,0,0,0,0,0,0,0,0"));
+    }
+
 }
