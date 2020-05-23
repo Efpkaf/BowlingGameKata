@@ -14,8 +14,19 @@ public class BowlingGame {
         if (strikeNum == 12) {
             return 300;
         }
+        boolean shouldMultiplePoints = false;
         for (String separatedPoint : separatedPoints) {
-            sum += Integer.parseInt(separatedPoint);
+            if(separatedPoint.equals("X")){
+                shouldMultiplePoints = true;
+                sum += 10;
+                continue;
+            }
+            int parsedPoints = Integer.parseInt(separatedPoint);
+
+            if(shouldMultiplePoints){
+                parsedPoints = 2*parsedPoints;
+            }
+            sum += parsedPoints;
         }
         return sum;
     }

@@ -34,4 +34,9 @@ class BowlingGameTest {
     void shouldAddBonusWhenFirstStrike() {
         assertEquals(16, theGame.getScore("X,1,2"));
     }
+
+    @Test
+    void shouldAddBonusOnlyForTwoNextValues() {
+        assertEquals(17, theGame.getScore("X,1,2,1"));
+    }
 }
