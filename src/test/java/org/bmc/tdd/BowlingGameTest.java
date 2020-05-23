@@ -16,12 +16,17 @@ class BowlingGameTest {
     }
 
     @Test
-    void shouldReturnZeroForZeroScoredPoints(){
+    void shouldReturnZeroForZeroScoredPoints() {
         assertEquals(0, theGame.getScore("0,0,0,0,0,0,0,0,0,0"));
     }
 
     @Test
-    void shouldReturnSumOfDifferentPoints(){
+    void shouldReturnSumOfDifferentPoints() {
         assertEquals(1, theGame.getScore("0,1"));
+    }
+
+    @Test
+    void shouldReturnMaximumAmountOfPoints() {
+        assertEquals(300, theGame.getScore("X,X,X,X,X,X,X,X,X,X,X,X"));
     }
 }

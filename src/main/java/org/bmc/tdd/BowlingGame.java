@@ -7,7 +7,11 @@ public class BowlingGame {
         if (separatedPoints.length == 1) {
             return Integer.parseInt(separatedPoints[0]);
         } else {
-            return 0;
+            int sum = 0;
+            for (String separatedPoint : separatedPoints) {
+                sum += Integer.parseInt(separatedPoint);
+            }
+            return sum;
         }
     }
 }
