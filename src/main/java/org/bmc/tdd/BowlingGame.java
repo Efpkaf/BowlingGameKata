@@ -4,14 +4,19 @@ public class BowlingGame {
 
     public int getScore(String points) {
         String [] separatedPoints = points.split(",");
-        if (separatedPoints.length == 1) {
-            return Integer.parseInt(separatedPoints[0]);
-        } else {
-            int sum = 0;
-            for (String separatedPoint : separatedPoints) {
-                sum += Integer.parseInt(separatedPoint);
+        int sum = 0;
+        int strikeNum = 0;
+        for (String separatedPoint : separatedPoints) {
+            if (separatedPoint.equals("X")) {
+                ++strikeNum;
             }
-            return sum;
         }
+        if (strikeNum == 12) {
+            return 300;
+        }
+        for (String separatedPoint : separatedPoints) {
+            sum += Integer.parseInt(separatedPoint);
+        }
+        return sum;
     }
 }
