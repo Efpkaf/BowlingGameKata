@@ -29,6 +29,8 @@ public class BowlingGame {
             if(shouldMultiplePoints){
                 if (bonusNumber < 2) {
                     parsedPoints = multipland*parsedPoints;
+                } else {
+                    shouldMultiplePoints = false;
                 }
                 ++bonusNumber;
             }
