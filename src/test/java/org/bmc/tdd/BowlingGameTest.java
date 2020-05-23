@@ -49,4 +49,9 @@ class BowlingGameTest {
     void shouldReturnMaximumAmountOfPointsWithoutBonusShoots() {
         assertEquals(270, theGame.getScore("X,X,X,X,X,X,X,X,X,X,0,0"));
     }
+
+    @Test
+    void shouldCalculateForPointsUnderXBetweenX() {
+        assertEquals(63, theGame.getScore("X,X,1,1,X,X,0,0,0,0"));
+    }
 }
